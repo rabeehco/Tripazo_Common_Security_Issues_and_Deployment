@@ -22,8 +22,11 @@ const mongoSanitize = require('express-mongo-sanitize')
 const userRoutes = require('./routes/users')
 const campgroundRoutes = require('./routes/campgrounds')
 const reviewRoutes = require('./routes/reviews')
+const dbUrl = process.env.DB_URL
+
 
 const mongoose = require('mongoose')
+// mongodb://127.0.0.1:/yelp-camp
 mongoose.connect('mongodb://127.0.0.1:/yelp-camp')
 .then(()=>{
     console.log('DB connected')
@@ -114,7 +117,7 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 app.use((req, res, next) => {
-    console.log(req.query)
+    // console.log(req.query)
     res.locals.currentUser = req.user
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error')
