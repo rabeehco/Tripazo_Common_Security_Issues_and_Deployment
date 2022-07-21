@@ -1,9 +1,18 @@
 #cluster-map {
     width: 100%;
     height: 500px;
+    border-radius: 20px;
 }
 
 #map {
     width: 100%;
     height: 300px;
 }
+
+.mapboxgl-ctrl{
+    display: none   ;
+}
+
+/* .navbar-color{ */
+    /* color: rgb(0, 0, 0) !important; */
+/* } */
