@@ -2,7 +2,7 @@
     <div class="row">
         <h1 class="text-center">New Campground</h1>
         <div class="col-6 offset-3">
-            <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <form action="/campgrounds" id="newEjsForm" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
                     <input class="form-control" type="text" name="campground[title]" id="title" required>
@@ -33,10 +33,11 @@
                     <input type="file" class="form-control" id="image" name="image" multiple>
                   </div>
                   
-                <button class="btn btn-success">Add Campground</button>
+                <button id="addCampground" class="btn btn-success">Add Campground</button>
             </form>
             <a href="http://localhost:3000/campgrounds"> <button class="btn btn-danger mt-2 mb-5">Cancel</button></a>
         </div>
     </div>
 
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/javascripts/antiDuplicate.js"></script>

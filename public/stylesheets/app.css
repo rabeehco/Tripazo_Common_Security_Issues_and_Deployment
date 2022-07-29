@@ -13,16 +13,9 @@
     display: none   ;
 }
 
-/* .navbar-color{ */
-    /* color: rgb(0, 0, 0) !important; */
-/* } */
-
 .main-background{
     background-image: url('https://images.unsplash.com/photo-1533873984035-25970ab07461?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80');
-    
-    /* https://images.unsplash.com/photo-1656618252107-441d5b508456?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=875&q=80 */
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    
 }
