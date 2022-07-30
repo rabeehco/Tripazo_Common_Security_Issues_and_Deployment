@@ -1,13 +1,23 @@
 const User = require('../models/user')
 
+
+
 /* Render Register Page */
 module.exports.renderRegister = (req, res) => {
-    res.render('users/register')
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Expires', '-1');
+    res.header('Pragma', 'no-cache');
+    if(req.isAuthenticated()){
+        res.redirect('/campgrounds')
+    } else {
+        res.render('users/register')
+    }
+    
 }
 
 /* User Register */
 module.exports.register = async (req, res) => {
-    try{
+    try{        
         const {email, username, password} = req.body
         const user = new User({email, username})
         const registeredUser = await User.register(user, password)
@@ -25,12 +35,14 @@ module.exports.register = async (req, res) => {
 
 /* Render Login Page */
 module.exports.userLogin = (req, res) => {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Expires', '-1');
+    res.header('Pragma', 'no-cache');
     if(req.isAuthenticated()){
          res.redirect('/campgrounds') 
     } else {
         res.render('users/login')
     }
-    
 }
   
 
