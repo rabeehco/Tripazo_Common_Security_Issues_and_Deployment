@@ -25,10 +25,12 @@ module.exports.register = async (req, res) => {
 
 /* Render Login Page */
 module.exports.userLogin = (req, res) => {
-    // if(req.isAuthenticated()){
-    //     return res.redirect('/campgrounds') 
-    // }
-    res.render('users/login')
+    if(req.isAuthenticated()){
+         res.redirect('/campgrounds') 
+    } else {
+        res.render('users/login')
+    }
+    
 }
   
 
