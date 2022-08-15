@@ -22,7 +22,7 @@ const mongoSanitize = require('express-mongo-sanitize')
 const userRoutes = require('./routes/users')
 const campgroundRoutes = require('./routes/campgrounds')
 const reviewRoutes = require('./routes/reviews')
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:/yelp-camp'
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:/bionet'
 
 const MongoDBStore = require("connect-mongo")(session) 
 
