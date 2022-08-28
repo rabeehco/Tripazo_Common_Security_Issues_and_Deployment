@@ -1,6 +1,7 @@
 // if(process.env.NODE_ENV !== 'production') {
 //     require('dotenv').config();
 // }
+
 require('dotenv').config();
 
 
@@ -22,7 +23,7 @@ const mongoSanitize = require('express-mongo-sanitize')
 const userRoutes = require('./routes/users')
 const campgroundRoutes = require('./routes/campgrounds')
 const reviewRoutes = require('./routes/reviews')
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:/bionet'
+const dbUrl = /* 'mongodb://127.0.0.1:/bionet' */ process.env.DB_URL 
 
 const MongoDBStore = require("connect-mongo")(session) 
 
@@ -137,7 +138,6 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 app.use((req, res, next) => {
-    // console.log(req.query)
     res.locals.currentUser = req.user
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error')

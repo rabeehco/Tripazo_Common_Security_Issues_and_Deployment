@@ -25,8 +25,8 @@ module.exports.createCampground = async (req, res, next) => {
     campground.geometry = geoData.body.features[0].geometry
     campground.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     campground.author = req.user._id;
+    campground.username = req.user.username
     await campground.save()
-    console.log(campground) 
     req.flash('success', 'Successfully made a new campground')
     res.redirect(`/campgrounds/${campground._id}`)
 }
@@ -60,7 +60,6 @@ module.exports.renderEditForm = async (req, res) => {
 /* Update Campground */
 module.exports.updateCampground = async (req, res) => {
     const {id} = req.params;
-    console.log(req.body)
     const campground = await Campground.findByIdAndUpdate(id, {
         ...req.body.campground
     })
@@ -79,8 +78,7 @@ module.exports.updateCampground = async (req, res) => {
                     }
                 }
             }
-        })
-        console.log(campground)
+        })        
     }
 
 

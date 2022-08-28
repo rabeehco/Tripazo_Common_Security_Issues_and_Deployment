@@ -25,15 +25,14 @@
 
     
     <div class="row gap-4 d-flex mt-4 pb-4 flex-wrap"> <!--  -->
-        <% for (let campground of campgrounds){ %>
-            <div class="col-md-3" style="height:auto; width:300px;">
-                <% if(campground.images.length){ %>
+        <% for (let campground of campgrounds){ %>                    
+            <div class="col-md-3" style="height:auto; width:300px;">                
+                <% if(campground.images.length){ %>                    
                     <div class="card border-0 rounded-3" style="background-color: #FCF6F5FF;">
                         <img src="<%= campground.images[0].url %> " class="img-fluid" style="height:200px; width:auto;">
-                        <% } else { %>
-                            <img class="img-fluid"
-                                src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/camping-quotes-1556677391.jpg?crop=1.00xw:0.855xh;0,0.0384xh&resize=1200:*"
-                                alt="">
+                        <% } else { %>   
+                            <div class="card border-0 rounded-3" style="background-color: #FCF6F5FF;">                       
+                                <img src="https://images.unsplash.com/photo-1526491109672-74740652b963?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" class="img-fluid" style="height:200px; width:auto;">
                             <% } %>
                                 <div class="card-body">
                                     <h5 class="card-title">
@@ -45,6 +44,11 @@
                                     <p class="small-text">
                                         <small class="text-muted">
                                             <%= campground.location %>
+                                        </small>
+                                    </p>
+                                    <p class="small-text">
+                                        <small class="text-muted">
+                                            <%= campground.username ? campground.username : 'deleted_user' %>
                                         </small>
                                     </p>
                                     <a href="/campgrounds/<%= campground._id %> " class="btn"
